@@ -6,12 +6,13 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:17:34 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/18 20:26:54 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/19 19:19:47 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PING_H
 # define PING_H
+
 # include "libft.h"
 
 #endif
