@@ -6,7 +6,7 @@
 #    By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/18 17:43:32 by jeberle           #+#    #+#              #
-#    Updated: 2026/02/18 20:30:30 by jeberle          ###   ########.fr        #
+#    Updated: 2026/02/19 19:57:18 by jeberle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ DEPFLAGS=-MMD -MP
 OBJ_DIR := ./obj
 DEP_DIR := $(OBJ_DIR)/.deps
 INC_DIRS := ./includes
-SRC_DIRS := ./src
+SRC_DIRS := ./src ./src/parser
 
 vpath %.c $(SRC_DIRS)
 vpath %.h $(INC_DIRS)
@@ -76,7 +76,8 @@ LIBFTFLAGS=-L$(LIBFT_DIR) -lft
 #------------------------------------------------------------------------------#
 
 SRCS= \
-main.c
+main.c \
+parser.c \
 
 #------------------------------------------------------------------------------#
 #--------------                      OBJECTS                      -------------#
