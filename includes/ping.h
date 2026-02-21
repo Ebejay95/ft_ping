@@ -6,7 +6,7 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:17:34 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/21 19:57:27 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/21 20:12:15 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ typedef enum e_error_code
 	ERR_NONE,
 	ERR_UNKNOWN_OPTION,
 	ERR_INVALID_HOST,
+	ERR_NO_HOST,
 	ERR_TOO_MANY_ARGS,
-	ERR_MALLOC_FAILED
+	ERR_MALLOC_FAILED,
+	ERR_SOCKET_FAILED
 }	t_error_code;	
 
 typedef struct s_ping
@@ -47,6 +49,6 @@ void	print_error(t_ping *ping, const char *prog);
 void	set_error(t_ping *ping, t_error_code code, char *arg);
 void	ping_help(void);
 int		resolve_target(t_ping *ping);
-void	run_ping(t_ping *ping);
+int		run_ping(t_ping *ping);
 
 #endif

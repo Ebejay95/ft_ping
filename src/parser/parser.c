@@ -6,7 +6,7 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:52:05 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/21 18:53:13 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/21 20:00:26 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ t_ping	*parse_arguments(t_ping *ping, int argc, char **argv)
 			break ;
 	}
 	if (!ping->help && ping->target == NULL && ping->error_code == ERR_NONE)
-		set_error(ping, ERR_INVALID_HOST, NULL);
+		set_error(ping, ERR_NO_HOST, NULL);
 	return (ping);
 }

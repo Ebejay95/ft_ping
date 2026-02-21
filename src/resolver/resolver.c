@@ -6,7 +6,7 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 18:33:31 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/21 19:57:58 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/21 19:59:18 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	resolve_target(t_ping *ping)
 	t_sockaddr_in	sa;
 	int				result;
 
-	ft_printf("resolving %s...\n", ping->target);
 	ft_memset(&sa, 0, sizeof(sa));
 	sa.sin_family = AF_INET;
 	result = inet_pton(AF_INET, ping->target, &(sa.sin_addr));

@@ -6,7 +6,7 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:18:37 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/21 19:48:30 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/21 20:11:54 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,12 @@ int	handle_ping(t_ping	*ping)
 		clean_ping(ping);
 		return (1);
 	}
-	run_ping(ping);
+	if (run_ping(ping) != 0)
+	{
+		print_error(ping, "ft_ping");
+		clean_ping(ping);
+		return (1);
+	}
 	clean_ping(ping);
 	return (0);
 }
