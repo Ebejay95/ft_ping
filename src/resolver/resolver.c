@@ -6,7 +6,7 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 18:33:31 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/21 19:40:49 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/21 19:57:58 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	resolve_hostname(t_ping *ping)
 	result = getaddrinfo(ping->target, NULL, &hints, &res);
 	if (result != 0)
 	{
-		set_error(ping, ERR_RESOLVE_FAILED, ping->target);
+		set_error(ping, ERR_INVALID_HOST, ping->target);
 		return (1);
 	}
 	ft_memcpy(&(ping->resolved_addr), res->ai_addr, sizeof(struct sockaddr_in));
@@ -48,7 +48,7 @@ int	resolve_target(t_ping *ping)
 	}
 	if (result == -1)
 	{
-		set_error(ping, ERR_RESOLVE_FAILED, ping->target);
+		set_error(ping, ERR_INVALID_HOST, ping->target);
 		return (1);
 	}
 	return (resolve_hostname(ping));

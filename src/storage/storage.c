@@ -6,7 +6,7 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 15:06:10 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/21 17:37:00 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/21 19:55:18 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	initialize_ping(t_ping *ping)
 	ping->target = NULL;
 	ping->verbose = 0;
 	ping->help = 0;
-	ping->error_arg = NULL;
+	ping->er_msg = NULL;
 	ping->error_code = ERR_NONE;
 }
 

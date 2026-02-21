@@ -6,7 +6,7 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:18:37 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/21 19:38:47 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/21 19:48:30 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	handle_ping(t_ping	*ping)
 	}
 	if (resolve_target(ping) != 0)
 	{
-		print_error(ping, ping->target);
+		print_error(ping, "ft_ping");
 		clean_ping(ping);
 		return (1);
 	}
@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 		ping = parse_arguments(ping, argc, argv);
 		if (ping->error_code != ERR_NONE)
 		{
-			print_error(ping, argv[0]);
+			print_error(ping, "ft_ping");
 			clean_ping(ping);
 			return (1);
 		}
