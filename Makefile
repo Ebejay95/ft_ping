@@ -6,7 +6,7 @@
 #    By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/18 17:43:32 by jeberle           #+#    #+#              #
-#    Updated: 2026/02/21 18:22:11 by jeberle          ###   ########.fr        #
+#    Updated: 2026/02/21 18:34:52 by jeberle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,8 @@ src/parser/parser.c \
 src/storage/storage.c \
 src/error/error.c \
 src/help/help.c \
+src/resolver/resolver.c \
+src/runner/runner.c \
 
 #------------------------------------------------------------------------------#
 #--------------                      OBJECTS                      -------------#

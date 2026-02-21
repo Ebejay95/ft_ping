@@ -6,20 +6,11 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:52:05 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/21 18:31:45 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/21 18:53:13 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ping.h"
-
-static void	set_error(t_ping *ping, t_error_code code, char *arg)
-{
-	if (ping->error_code == ERR_NONE)
-	{
-		ping->error_code = code;
-		ping->error_arg = arg;
-	}
-}
 
 bool	parse_option(t_ping *ping, char *option)
 {

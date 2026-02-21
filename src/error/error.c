@@ -6,11 +6,20 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 17:38:49 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/21 17:54:35 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/21 19:40:09 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ping.h"
+
+void	set_error(t_ping *ping, t_error_code code, char *arg)
+{
+	if (ping->error_code == ERR_NONE)
+	{
+		ping->error_code = code;
+		ping->error_arg = arg;
+	}
+}
 
 static void	error_unknown_option(const char *prog, char *arg)
 {
@@ -43,6 +52,8 @@ void	print_error(t_ping *ping, const char *prog)
 		ft_fprintf(2, RED"%s: too many arguments\n"RESET, prog);
 	else if (ping->error_code == ERR_MALLOC_FAILED)
 		ft_fprintf(2, RED"%s: memory allocation failed\n"RESET, prog);
+	else if (ping->error_code == ERR_RESOLVE_FAILED)
+		ft_fprintf(2, RED"%s: Name or service not known\n"RESET, prog);
 	else
 		ft_fprintf(2, RED"%s: invalid arguments\n"RESET, prog);
 }

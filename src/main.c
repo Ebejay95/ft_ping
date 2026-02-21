@@ -6,23 +6,11 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:18:37 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/21 18:28:08 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/21 19:38:47 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ping.h"
-
-void	resolve_target(t_ping *ping)
-{
-	(void)ping;
-	ft_printf(YELLOW"Resolving target %s\n"RESET, ping->target);
-}
-
-void	run_ping(t_ping *ping)
-{	
-	(void)ping;
-	ft_printf(YELLOW"Running ping to %s\n"RESET, ping->target);
-}
 
 int	handle_ping(t_ping	*ping)
 {
@@ -32,7 +20,12 @@ int	handle_ping(t_ping	*ping)
 		clean_ping(ping);
 		return (0);
 	}
-	resolve_target(ping);
+	if (resolve_target(ping) != 0)
+	{
+		print_error(ping, ping->target);
+		clean_ping(ping);
+		return (1);
+	}
 	run_ping(ping);
 	clean_ping(ping);
 	return (0);
