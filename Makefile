@@ -6,7 +6,7 @@
 #    By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/18 17:43:32 by jeberle           #+#    #+#              #
-#    Updated: 2026/02/26 20:52:49 by jeberle          ###   ########.fr        #
+#    Updated: 2026/02/26 23:55:24 by jeberle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,6 +105,9 @@ $(LIBFT_LIB):
 $(NAME): $(OBJECTS)
 	@$(CC) -o $@ $^ $(LIBFTFLAGS)
 	@echo "$(GREEN)SUCCESS:$(X)\n$(SUCCESS)"
+
+transfer:
+	scp -P 2222 -r ../$(NAME) jonathan@127.0.0.1:/home/jonathan/
 
 clean:
 	@rm -rf $(OBJ_DIR)

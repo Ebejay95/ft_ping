@@ -6,7 +6,7 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 18:34:08 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/26 21:31:20 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/26 23:54:19 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ static int	g_stop = 0;
 
 int	setup_ping(t_ping *ping)
 {
-	// ping->socket_fd = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
-	ping->socket_fd = socket(AF_INET, SOCK_STREAM, 0);
+	ping->socket_fd = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
 	if (ping->socket_fd < 0)
 	{
 		set_error(ping, ERR_SOCKET_FAILED, NULL);
@@ -60,24 +59,26 @@ int	ping_cycle(t_ping *ping)
 		return (1);
 	if (receive_ping(ping) != 0)
 		return (1);
-	ft_printf(BLUE"Ping %d to %s\n"RESET, ping->count + 1, ping->target);
 	ping->count++;
+	ft_printf(BLUE"Ping %d to %s\n"RESET, ping->count, ping->target);
 	return (0);
 }
 
 int	ping_loop(t_ping *ping)
 {
+	signal(SIGINT, handle_sigint);
 	while (true)
 	{
+		if (g_stop)
+			break ;
 		if (ping_cycle(ping) != 0)
 		{
 			set_error(ping, ERR_PING_FAILED, NULL);
 			return (1);
 		}
-		sleep(1);
-		signal(SIGINT, handle_sigint);
 		if (g_stop)
 			break ;
+		sleep(1);
 	}
 	return (0);
 }
