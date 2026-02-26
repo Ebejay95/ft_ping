@@ -6,7 +6,7 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:17:34 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/21 20:12:15 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/26 21:30:49 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include "libft.h"
 # include <arpa/inet.h>
 # include <netdb.h>
+# include <signal.h>
+# include <time.h>
+# include <unistd.h>
 
 typedef struct sockaddr_in	t_sockaddr_in;
 
@@ -28,7 +31,8 @@ typedef enum e_error_code
 	ERR_NO_HOST,
 	ERR_TOO_MANY_ARGS,
 	ERR_MALLOC_FAILED,
-	ERR_SOCKET_FAILED
+	ERR_SOCKET_FAILED,
+	ERR_PING_FAILED,
 }	t_error_code;	
 
 typedef struct s_ping
@@ -36,6 +40,8 @@ typedef struct s_ping
 	char				*target;
 	int					verbose;
 	int					help;
+	int					socket_fd;
+	int					count;
 	char				*er_msg;
 	t_sockaddr_in		resolved_addr;
 	t_error_code		error_code;	

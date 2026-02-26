@@ -6,7 +6,7 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 17:38:49 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/21 20:10:55 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/02/26 21:31:03 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	print_error(t_ping *ping, const char *prog)
 		ft_fprintf(2, RED"%s: memory allocation failed\n"RESET, prog);
 	else if (ping->error_code == ERR_SOCKET_FAILED)
 		ft_fprintf(2, RED"%s: socket creation failed\n"RESET, prog);
+	else if (ping->error_code == ERR_PING_FAILED)
+		ft_fprintf(2, RED"%s: ping failed\n"RESET, prog);
 	else
 		ft_fprintf(2, RED"%s: invalid arguments\n"RESET, prog);
 }
