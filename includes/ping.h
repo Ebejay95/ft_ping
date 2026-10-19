@@ -6,7 +6,7 @@
 /*   By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:17:34 by jeberle           #+#    #+#             */
-/*   Updated: 2026/02/26 21:30:49 by jeberle          ###   ########.fr       */
+/*   Updated: 2026/10/19 17:16:23 by jeberle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,10 @@ void	set_error(t_ping *ping, t_error_code code, char *arg);
 void	ping_help(void);
 int		resolve_target(t_ping *ping);
 int		run_ping(t_ping *ping);
-
+int		prepare_step(t_ping *ping);
+int		send_ping(t_ping *ping);
+int		receive_ping(t_ping *ping);
+void	handle_sigint(int signum);
+int		ping_cycle(t_ping *ping);
+int		ping_loop(t_ping *ping);
 #endif

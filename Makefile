@@ -6,7 +6,7 @@
 #    By: jeberle <jeberle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/18 17:43:32 by jeberle           #+#    #+#              #
-#    Updated: 2026/02/26 23:55:24 by jeberle          ###   ########.fr        #
+#    Updated: 2026/10/19 17:15:48 by jeberle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,8 @@ src/storage/storage.c \
 src/error/error.c \
 src/help/help.c \
 src/resolver/resolver.c \
+src/runner/icmp.c \
+src/runner/loop.c \
 src/runner/runner.c \
 
 #------------------------------------------------------------------------------#
